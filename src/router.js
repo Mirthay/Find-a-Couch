@@ -1,13 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
-
-/* import ProductsList from './pages/ProductsList.vue'; */
+import App from './App.vue';
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/', redirect: '/home' }
-    /*  { path: '/products', component: ProductsList },
-     */
+    { path: '/', redirect: '/home' },
+    { path: '/home', component: App }
   ]
 });
 
