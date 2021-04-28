@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-/* import App from './App.vue'; */
+import CouchInfo from './components/CouchInfo.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -8,7 +8,7 @@ const router = createRouter({
     { path: '/couches', component: null },
     {
       path: '/couches/:id',
-      component: null,
+      component: CouchInfo,
       children: [{ path: 'contact', component: null }]
     }, // couches/c1/contact
     { path: '/register', component: null },
