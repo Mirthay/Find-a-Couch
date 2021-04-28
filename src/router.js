@@ -3,6 +3,7 @@ import CouchInfo from './components/CouchInfo.vue';
 import CouchList from './components/CouchList.vue';
 import NotFound from './components/NotFound.vue';
 import RequestList from './components/RequestList.vue';
+import TheContact from './components/TheContact.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -12,7 +13,7 @@ const router = createRouter({
     {
       path: '/couches/:id',
       component: CouchInfo,
-      children: [{ path: 'contact', component: null }]
+      children: [{ path: 'contact', component: TheContact }]
     }, // couches/c1/contact
     { path: '/register', component: null },
     { path: '/request', component: RequestList },
