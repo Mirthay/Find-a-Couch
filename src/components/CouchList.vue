@@ -3,7 +3,13 @@
     FILTER
   </section>
   <section>
-    List Of Couches
+    <div class="contorls">
+      <button>Refresh</button>
+      <router-link to="/register">Register as Couch</router-link>
+    </div>
+    <ul>
+      List Of Couches
+    </ul>
   </section>
 </template>
 
