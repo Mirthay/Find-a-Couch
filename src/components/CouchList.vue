@@ -1,5 +1,10 @@
 <template>
-  <section></section>
+  <section>
+    FILTER
+  </section>
+  <section>
+    List Of Couches
+  </section>
 </template>
 
 <script>
