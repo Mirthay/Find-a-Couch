@@ -1,9 +1,15 @@
 <template>
-  <section>
-    <div>
-      <h2>{{ title }}</h2>
-    </div>
-  </section>
+  <header>
+    <nav>
+      <h2>
+        <router-link to="/">{{ title }}</router-link>
+      </h2>
+      <ul>
+        <li><router-link to="/couches">All Couches</router-link></li>
+        <li><router-link to="/request">Request</router-link></li>
+      </ul>
+    </nav>
+  </header>
 </template>
 
 <script>
@@ -13,7 +19,7 @@ export default {
 </script>
 
 <style scoped>
-section {
+header {
   border: 1px solid;
   border-radius: 25px;
   opacity: 0.5;
