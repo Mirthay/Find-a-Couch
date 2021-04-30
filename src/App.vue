@@ -1,6 +1,6 @@
 <template>
+  <the-header title="Find A Couch"> </the-header>
   <router-view></router-view>
-  <the-header title="Nadpis"></the-header>
 </template>
 
 <script>
@@ -13,4 +13,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+body {
+  margin: 0;
+}
+</style>
