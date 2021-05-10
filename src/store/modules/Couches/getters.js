@@ -1,1 +1,5 @@
-export default {};
+export default {
+  couches(state) {
+    return state.couches;
+  }
+};
