@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import CouchInfo from './components/CouchInfo.vue';
-import CouchList from './components/CouchList.vue';
+import CouchInfo from './pages/Couches/CouchInfo.vue';
+import CouchList from './pages/Couches/CouchList.vue';
 import NotFound from './components/NotFound.vue';
-import RequestList from './components/RequestList.vue';
-import ContactCouch from './components/ContactCouch.vue';
-import TheRegistration from './components/TheRegistration.vue';
+import RequestList from './pages/Request/RequestList.vue';
+import ContactCouch from './pages/Request/ContactCouch.vue';
+import TheRegistration from './pages/Couches/TheRegistration.vue';
 
 const router = createRouter({
   history: createWebHistory(),
