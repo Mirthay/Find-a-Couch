@@ -1,5 +1,6 @@
 <template>
   <div>some Info about chouch</div>
   <router-view></router-view>
-  <router-link to="/couches/c1/contact">Contact Couch</router-link>
+
+  <base-button to="/couches/c1/contact">Contact Couch</base-button>
 </template>

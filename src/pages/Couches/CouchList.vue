@@ -1,24 +1,28 @@
 <template>
   <section>
-    FILTER
+    <base-card>
+      FILTER
+    </base-card>
   </section>
   <section>
-    <div class="contorls">
-      <button>Refresh</button>
-      <router-link to="/register">Register as Couch</router-link>
-    </div>
-    <ul v-if="hasCouches">
-      <couch-item
-        v-for="couch in filteredCouches"
-        :key="couch.id"
-        :id="couch.id"
-        :firstName="couch.firstName"
-        :lastName="couch.lastName"
-        :areas="couch.areas"
-        :rate="couch.hourlyRate"
-      ></couch-item>
-    </ul>
-    <h3 v-else>No couches found.</h3>
+    <base-card>
+      <div class="contorls">
+        <base-button mode="outline">Refresh</base-button>
+        <base-button link to="/register">Register as Couch</base-button>
+      </div>
+      <ul v-if="hasCouches">
+        <couch-item
+          v-for="couch in filteredCouches"
+          :key="couch.id"
+          :id="couch.id"
+          :firstName="couch.firstName"
+          :lastName="couch.lastName"
+          :areas="couch.areas"
+          :rate="couch.hourlyRate"
+        ></couch-item>
+      </ul>
+      <h3 v-else>No couches found.</h3>
+    </base-card>
   </section>
 </template>
 
@@ -38,14 +42,6 @@ export default {
 </script>
 
 <style scoped>
-section {
-  border: 1px solid;
-  border-radius: 25px;
-  box-shadow: 1px 1px black;
-}
-h2 {
-  text-align: center;
-}
 ul {
   list-style: none;
   margin: 0;
