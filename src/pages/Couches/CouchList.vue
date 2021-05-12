@@ -8,16 +8,24 @@
       <router-link to="/register">Register as Couch</router-link>
     </div>
     <ul v-if="hasCouches">
-      <li v-for="couch in filteredCouches" :key="couch.id">
-        {{ couch.firstName }} {{ couch.lastName }}
-      </li>
+      <couch-item
+        v-for="couch in filteredCouches"
+        :key="couch.id"
+        :id="couch.id"
+        :firstName="couch.firstName"
+        :lastName="couch.lastName"
+        :areas="couch.areas"
+        :rate="couch.hourlyRate"
+      ></couch-item>
     </ul>
     <h3 v-else>No couches found.</h3>
   </section>
 </template>
 
 <script>
+import CouchItem from '../../components/couches/CouchItem.vue';
 export default {
+  components: { CouchItem },
   computed: {
     filteredCouches() {
       return this.$store.getters['couches/couches'];
@@ -33,10 +41,19 @@ export default {
 section {
   border: 1px solid;
   border-radius: 25px;
-  opacity: 0.5;
   box-shadow: 1px 1px black;
 }
 h2 {
   text-align: center;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
 }
 </style>
