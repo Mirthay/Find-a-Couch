@@ -1,7 +1,7 @@
 export default {
   registerCouch(context, data) {
     const regData = {
-      id: 'c3',
+      id: context.rootGetters.userId,
       firstName: data.firstName,
       lastName: data.lastName,
       areas: data.areas,
