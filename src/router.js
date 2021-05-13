@@ -15,7 +15,7 @@ const router = createRouter({
       path: '/couches/:id',
       props: true,
       component: CouchInfo,
-      children: [{ path: 'contact', component: ContactCouch }]
+      children: [{ props: true, path: 'contact', component: ContactCouch }]
     }, // couches/c1/contact
     { path: '/register', component: TheRegistration },
     { path: '/request', component: RequestList },
