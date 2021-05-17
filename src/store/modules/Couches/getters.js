@@ -7,7 +7,7 @@ export default {
   },
   isCouch(_, getters, _2, rootGetters) {
     const couches = getters.couches;
-    const userId = rootGetters.userId;
-    return couches.some(couch => couch.id === userId);
+    const couchId = rootGetters.couchId;
+    return couches.some(couch => couch.id === couchId);
   }
 };

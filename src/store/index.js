@@ -7,12 +7,12 @@ const store = createStore({
   modules: { couches: CouchesModule, requests: RequestModule },
   state() {
     return {
-      userId: 'c3'
+      couchId: 'c3'
     };
   },
   getters: {
-    userId(state) {
-      return state.userId;
+    couchId(state) {
+      return state.couchId;
     }
   }
 });

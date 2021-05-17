@@ -44,7 +44,7 @@ export default {
         return;
       }
       this.$store.dispatch('requests/contactCouch', {
-        couchId: this.id,
+        couchId: this.$route.params.id,
         email: this.email,
         message: this.message
       });
