@@ -6,11 +6,14 @@
     <base-card>
       <div class="controls">
         <base-button mode="outline" @click="loadCouches">Refresh</base-button>
-        <base-button v-if="!isCouch" link to="/register"
+        <base-button v-if="!isCouch && !isLoading" link to="/register"
           >Register as Couch</base-button
         >
       </div>
-      <ul v-if="hasCouches">
+      <div v-if="isLoading">
+        <base-spinner></base-spinner>
+      </div>
+      <ul v-else-if="hasCouches">
         <couch-item
           v-for="couch in filteredCouches"
           :key="couch.id"
@@ -33,6 +36,8 @@ export default {
   components: { CouchItem, CouchFilter },
   data() {
     return {
+      isLoading: false,
+      error: null,
       activeFilters: {
         frontend: true,
         backend: true,
@@ -44,8 +49,14 @@ export default {
     this.loadCouches();
   },
   methods: {
-    loadCouches() {
-      this.$store.dispatch('couches/loadCouches');
+    async loadCouches() {
+      this.isLoading = true;
+      try {
+        await this.$store.dispatch('couches/loadCouches');
+      } catch (error) {
+        this.error = error.message || 'Something went wrong';
+      }
+      this.isLoading = false;
     },
     setFilters(updatedFilters) {
       this.activeFilters = updatedFilters;
@@ -71,7 +82,7 @@ export default {
       return this.$store.getters['couches/isCouch'];
     },
     hasCouches() {
-      return this.$store.getters['couches/hasCouches'];
+      return !this.isLoading && this.$store.getters['couches/hasCouches'];
     }
   }
 };
