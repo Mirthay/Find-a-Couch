@@ -5,7 +5,7 @@
   <section>
     <base-card>
       <div class="controls">
-        <base-button mode="outline">Refresh</base-button>
+        <base-button mode="outline" @click="loadCouches">Refresh</base-button>
         <base-button v-if="!isCouch" link to="/register"
           >Register as Couch</base-button
         >
@@ -40,6 +40,17 @@ export default {
       }
     };
   },
+  created() {
+    this.loadCouches();
+  },
+  methods: {
+    loadCouches() {
+      this.$store.dispatch('couches/loadCouches');
+    },
+    setFilters(updatedFilters) {
+      this.activeFilters = updatedFilters;
+    }
+  },
   computed: {
     filteredCouches() {
       const couches = this.$store.getters['couches/couches'];
@@ -61,11 +72,6 @@ export default {
     },
     hasCouches() {
       return this.$store.getters['couches/hasCouches'];
-    }
-  },
-  methods: {
-    setFilters(updatedFilters) {
-      this.activeFilters = updatedFilters;
     }
   }
 };
