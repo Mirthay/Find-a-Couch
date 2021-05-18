@@ -1,4 +1,7 @@
 <template>
+  <base-dialog :show="!!error" title="Error occurred" @close="handleError">
+    <p>{{ error }}</p>
+  </base-dialog>
   <section>
     <couch-filter @change-filter="setFilters"></couch-filter>
   </section>
@@ -49,6 +52,9 @@ export default {
     this.loadCouches();
   },
   methods: {
+    handleError() {
+      this.error = null;
+    },
     async loadCouches() {
       this.isLoading = true;
       try {
