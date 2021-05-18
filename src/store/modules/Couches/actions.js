@@ -31,7 +31,7 @@ export default {
   },
   async loadCouches(context) {
     const response = await fetch(
-      `https://test-couch-3659d-default-rtdb.firebaseio.com/couches.jso`
+      `https://test-couch-3659d-default-rtdb.firebaseio.com/couches.json`
     );
     const responseData = await response.json();
     if (!response.ok) {
