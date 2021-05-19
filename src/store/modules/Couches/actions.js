@@ -56,5 +56,8 @@ export default {
     }
     context.commit('setCouches', couches);
     context.commit('setFetchTimestamp');
+  },
+  refresh(context) {
+    context.commit('refresh');
   }
 };
