@@ -8,7 +8,7 @@
   <section>
     <base-card>
       <div class="controls">
-        <base-button mode="outline" @click="loadCouches">Refresh</base-button>
+        <base-button mode="outline" @click="refresh">Refresh</base-button>
         <base-button v-if="!isCouch && !isLoading" link to="/register"
           >Register as Couch</base-button
         >
@@ -54,6 +54,10 @@ export default {
   methods: {
     handleError() {
       this.error = null;
+    },
+    refresh() {
+      this.$store.dispatch('couches/refresh');
+      this.loadCouches();
     },
     async loadCouches() {
       this.isLoading = true;
