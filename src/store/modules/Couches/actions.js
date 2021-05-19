@@ -30,6 +30,9 @@ export default {
     });
   },
   async loadCouches(context) {
+    if (!context.getters.shouldUpdate) {
+      return;
+    }
     const response = await fetch(
       `https://test-couch-3659d-default-rtdb.firebaseio.com/couches.json`
     );
@@ -52,5 +55,6 @@ export default {
       couches.push(couch);
     }
     context.commit('setCouches', couches);
+    context.commit('setFetchTimestamp');
   }
 };
