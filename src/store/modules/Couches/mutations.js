@@ -8,5 +8,8 @@ export default {
   },
   setFetchTimestamp(state) {
     state.lastFetch = new Date().getTime();
+  },
+  refresh(state) {
+    state.lastFetch = null;
   }
 };
