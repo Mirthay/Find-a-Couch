@@ -6,7 +6,9 @@ export default {
   namespaced: true,
   state() {
     return {
-      couchId: 'c3'
+      token: null,
+      couchId: null,
+      tokenExpiration: null
     };
   },
   mutations,
