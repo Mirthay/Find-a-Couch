@@ -9,16 +9,6 @@ const store = createStore({
     couches: CouchesModule,
     requests: RequestModule,
     auth: AuthModule
-  },
-  state() {
-    return {
-      couchId: 'c3'
-    };
-  },
-  getters: {
-    couchId(state) {
-      return state.couchId;
-    }
   }
 });
 
