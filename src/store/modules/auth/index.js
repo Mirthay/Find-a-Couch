@@ -5,7 +5,9 @@ import getters from './getters.js';
 export default {
   namespaced: true,
   state() {
-    return {};
+    return {
+      couchId: 'c3'
+    };
   },
   mutations,
   actions,
