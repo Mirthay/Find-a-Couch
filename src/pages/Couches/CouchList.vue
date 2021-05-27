@@ -9,8 +9,14 @@
     <base-card>
       <div class="controls">
         <base-button mode="outline" @click="refresh">Refresh</base-button>
-        <base-button v-if="!isCouch && !isLoading" link to="/register"
+        <base-button
+          v-if="isLoggedIn && !isCouch && !isLoading"
+          link
+          to="/register"
           >Register as Couch</base-button
+        >
+        <base-button link to="/auth" v-if="!isLoggedIn"
+          >Login or Sign up</base-button
         >
       </div>
       <div v-if="isLoading">
@@ -73,6 +79,9 @@ export default {
     }
   },
   computed: {
+    isLoggedIn() {
+      return this.$store.getters['auth/isAuth'];
+    },
     filteredCouches() {
       const couches = this.$store.getters['couches/couches'];
       return couches.filter(couch => {
