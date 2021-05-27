@@ -1,6 +1,6 @@
 export default {
   async registerCouch(context, data) {
-    const userId = context.rootGetters.couchId;
+    const userId = context.rootGetters['auth/couchId'];
     const regData = {
       firstName: data.firstName,
       lastName: data.lastName,
@@ -9,8 +9,11 @@ export default {
       hourlyRate: data.rate
     };
 
+    const token = context.rootGetters['auth/token'];
+
     const response = await fetch(
-      `https://test-couch-3659d-default-rtdb.firebaseio.com/couches/${userId}.json`,
+      `https://test-couch-3659d-default-rtdb.firebaseio.com/couches/${userId}.json?auth=` +
+        token,
       {
         method: 'PUT',
         body: JSON.stringify(regData)
