@@ -22,12 +22,17 @@ export default {
     }
   },
   async loadRequests(context) {
+    const token = context.rootGetters['auth/token'];
+
     const response = await fetch(
-      `https://test-couch-3659d-default-rtdb.firebaseio.com/requests.json`
+      `https://test-couch-3659d-default-rtdb.firebaseio.com/requests.json?auth=` +
+        token
     );
     const responseData = await response.json();
     if (!response.ok) {
-      const error = new Error(responseData.message || 'Failed to Fatch');
+      const error = new Error(
+        responseData.message || 'Failed to Fatch requests'
+      );
       throw error;
     }
 
