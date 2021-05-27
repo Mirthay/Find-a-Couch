@@ -6,7 +6,12 @@
       </h1>
       <ul>
         <li><router-link to="/couches">All Couches</router-link></li>
-        <li><router-link to="/request">Request</router-link></li>
+        <li v-if="isLoggedIn">
+          <router-link to="/request">Request</router-link>
+        </li>
+        <li v-else>
+          <router-link to="/auth">Login</router-link>
+        </li>
       </ul>
     </nav>
   </header>
@@ -14,7 +19,12 @@
 
 <script>
 export default {
-  props: ['title']
+  props: ['title'],
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters['auth/isAuth'];
+    }
+  }
 };
 </script>
 
