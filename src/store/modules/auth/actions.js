@@ -50,5 +50,12 @@ export default {
       couchId: responseData.localId,
       tokenExpiration: responseData.expiresIn
     });
+  },
+  logout(context) {
+    context.commit('setUser', {
+      token: null,
+      couchId: null,
+      tokenExpiration: null
+    });
   }
 };
