@@ -21,12 +21,12 @@ const router = createRouter({
     }, // couches/c1/contact
     { path: '/register', component: TheRegistration, meta: { reqAuth: true } },
     { path: '/request', component: RequestList, meta: { reqAuth: true } },
-    { path: '/Auth', component: UserAuth, meta: { reqUnauth: true } },
+    { path: '/auth', component: UserAuth, meta: { reqUnauth: true } },
     { path: '/:notFound(.*)', component: NotFound }
   ]
 });
 
-router.beforeEach(function(to, from, next) {
+router.beforeEach(function(to, _, next) {
   if (to.meta.reqAuth && !store.getters['auth/isAuth']) {
     next('/auth');
   } else if (to.meta.reqUnauth && store.getters['auth/isAuth']) {
