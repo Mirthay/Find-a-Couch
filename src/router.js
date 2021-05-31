@@ -6,6 +6,7 @@ import RequestList from './pages/Request/RequestList.vue';
 import ContactCouch from './pages/Request/ContactCouch.vue';
 import TheRegistration from './pages/Couches/TheRegistration.vue';
 import UserAuth from './pages/auth/UserAuth.vue';
+import store from './store/index.js';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -18,11 +19,21 @@ const router = createRouter({
       component: CouchInfo,
       children: [{ props: true, path: 'contact', component: ContactCouch }]
     }, // couches/c1/contact
-    { path: '/register', component: TheRegistration },
-    { path: '/request', component: RequestList },
-    { path: '/Auth', component: UserAuth },
+    { path: '/register', component: TheRegistration, meta: { reqAuth: true } },
+    { path: '/request', component: RequestList, meta: { reqAuth: true } },
+    { path: '/Auth', component: UserAuth, meta: { reqUnauth: true } },
     { path: '/:notFound(.*)', component: NotFound }
   ]
+});
+
+router.beforeEach(function(to, from, next) {
+  if (to.meta.reqAuth && !store.getters['auth/isAuth']) {
+    next('/auth');
+  } else if (to.meta.reqUnauth && store.getters['auth/isAuth']) {
+    next('/couches');
+  } else {
+    next();
+  }
 });
 
 export default router;
