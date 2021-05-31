@@ -1,5 +1,5 @@
 <template>
-  <the-header title="Find A Couch(Coach)"> </the-header>
+  <the-header title="Find a Coach"> </the-header>
   <router-view></router-view>
 </template>
 
