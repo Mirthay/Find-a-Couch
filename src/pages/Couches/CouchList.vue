@@ -15,8 +15,8 @@
           to="/register"
           >Register as Couch</base-button
         >
-        <base-button link to="/auth" v-if="!isLoggedIn"
-          >Login or Sign up</base-button
+        <base-button link to="/auth?redirect=register" v-if="!isLoggedIn"
+          >Login to register as Coach</base-button
         >
       </div>
       <div v-if="isLoading">
