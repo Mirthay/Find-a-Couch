@@ -5,7 +5,7 @@
         <router-link to="/">{{ title }}</router-link>
       </h1>
       <ul>
-        <li><router-link to="/couches">All Couches</router-link></li>
+        <li><router-link to="/couches">All Coaches</router-link></li>
         <li v-if="isLoggedIn">
           <router-link to="/request">Request</router-link>
         </li>
