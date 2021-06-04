@@ -10,7 +10,7 @@ export default {
     const mode = payload.mode;
     let url =
       'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBnF6Bf78fzehU7ZC_Sr7rirHqctjd4YL4';
-    if (mode === 'singup') {
+    if (mode === 'signup') {
       url =
         'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBnF6Bf78fzehU7ZC_Sr7rirHqctjd4YL4';
     }
