@@ -8,7 +8,7 @@ export default {
     return {
       token: null,
       couchId: null,
-      tokenExpiration: null
+      didLogout: false
     };
   },
   mutations,
