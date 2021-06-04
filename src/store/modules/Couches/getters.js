@@ -5,9 +5,10 @@ export default {
   hasCouches(state) {
     return state.couches && state.couches.length > 0;
   },
-  isCouch(_, getters, _2, rootGetters) {
+  isCouch(getters, _, _2, rootGetters) {
     const couches = getters.couches;
-    const couchId = rootGetters.couchId;
+    const couchId = rootGetters['auth/couchId'];
+    console.log(couchId);
     return couches.some(couch => couch.id === couchId);
   },
   shouldUpdate(state) {
