@@ -44,7 +44,6 @@ export default {
         userEmail: responseData[key].userEmail,
         userMessage: responseData[key].userMessage
       };
-      console.log(request);
       requests.push(request);
     }
     context.commit('setRequests', requests);
