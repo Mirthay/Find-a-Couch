@@ -1,10 +1,10 @@
 export default {
-  requests(state, _, _2, getters) {
-    const couchId = getters['auth/couchId'];
+  requests(state, _, _2, rootGetters) {
+    const couchId = rootGetters['auth/couchId'];
     return state.requests.filter(req => req.couchId === couchId);
   },
-  noRequests(state, _, _2, getters) {
-    const couchId = getters['auth/couchId'];
+  noRequests(state, _, _2, rootGetters) {
+    const couchId = rootGetters['auth/couchId'];
     console.log(couchId);
     const couchReq = state.requests.filter(req => req.couchId === couchId);
     return couchReq && couchReq.length > 0;
