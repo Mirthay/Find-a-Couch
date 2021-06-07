@@ -1,41 +1,43 @@
 <template>
-  <base-dialog :show="!!error" title="Error occurred" @close="handleError">
-    <p>{{ error }}</p>
-  </base-dialog>
-  <section>
-    <couch-filter @change-filter="setFilters"></couch-filter>
-  </section>
-  <section>
-    <base-card>
-      <div class="controls">
-        <base-button mode="outline" @click="refresh">Refresh</base-button>
-        <base-button
-          v-if="isLoggedIn && !isCouch && !isLoading"
-          link
-          to="/register"
-          >Register as Couch</base-button
-        >
-        <base-button link to="/auth?redirect=register" v-if="!isLoggedIn"
-          >Login to register as Coach</base-button
-        >
-      </div>
-      <div v-if="isLoading">
-        <base-spinner></base-spinner>
-      </div>
-      <ul v-else-if="hasCouches">
-        <couch-item
-          v-for="couch in filteredCouches"
-          :key="couch.id"
-          :id="couch.id"
-          :firstName="couch.firstName"
-          :lastName="couch.lastName"
-          :areas="couch.areas"
-          :rate="couch.hourlyRate"
-        ></couch-item>
-      </ul>
-      <h3 v-else>No couches found.</h3>
-    </base-card>
-  </section>
+  <div>
+    <base-dialog :show="!!error" title="Error occurred" @close="handleError">
+      <p>{{ error }}</p>
+    </base-dialog>
+    <section>
+      <couch-filter @change-filter="setFilters"></couch-filter>
+    </section>
+    <section>
+      <base-card>
+        <div class="controls">
+          <base-button mode="outline" @click="refresh">Refresh</base-button>
+          <base-button
+            v-if="isLoggedIn && !isCouch && !isLoading"
+            link
+            to="/register"
+            >Register as Couch</base-button
+          >
+          <base-button link to="/auth?redirect=register" v-if="!isLoggedIn"
+            >Login to register as Coach</base-button
+          >
+        </div>
+        <div v-if="isLoading">
+          <base-spinner></base-spinner>
+        </div>
+        <ul v-else-if="hasCouches">
+          <couch-item
+            v-for="couch in filteredCouches"
+            :key="couch.id"
+            :id="couch.id"
+            :firstName="couch.firstName"
+            :lastName="couch.lastName"
+            :areas="couch.areas"
+            :rate="couch.hourlyRate"
+          ></couch-item>
+        </ul>
+        <h3 v-else>No couches found.</h3>
+      </base-card>
+    </section>
+  </div>
 </template>
 
 <script>
