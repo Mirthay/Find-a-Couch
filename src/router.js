@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import CouchInfo from './pages/Couches/CouchInfo.vue';
+/* import CouchInfo from './pages/Couches/CouchInfo.vue'; */
 import CouchList from './pages/Couches/CouchList.vue';
 import NotFound from './components/NotFound.vue';
 import RequestList from './pages/Request/RequestList.vue';
@@ -7,6 +7,8 @@ import ContactCouch from './pages/Request/ContactCouch.vue';
 import TheRegistration from './pages/Couches/TheRegistration.vue';
 import UserAuth from './pages/auth/UserAuth.vue';
 import store from './store/index.js';
+
+const CouchInfo = () => import('./pages/Couches/CouchInfo.vue');
 
 const router = createRouter({
   history: createWebHistory(),
