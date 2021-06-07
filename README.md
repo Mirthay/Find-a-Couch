@@ -1,4 +1,4 @@
-# Find-a-Couch https://test-couch-3659d.firebaseapp.com/couches preview
+# Find-a-Couch https://test-couch-3659d.firebaseapp.com preview
 ## Project setup
 ```
 npm install
